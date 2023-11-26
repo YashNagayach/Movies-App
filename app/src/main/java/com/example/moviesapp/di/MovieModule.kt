@@ -1,7 +1,7 @@
 package com.example.moviesapp.di
 
+import com.example.moviesapp.BuildConfig
 import com.example.moviesapp.api.MovieApi
-import com.example.moviesapp.utils.Common.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +19,7 @@ object MovieModule {
     @Singleton
     fun providesMovieApi(): MovieApi {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(MovieApi::class.java)
     }

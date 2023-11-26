@@ -23,8 +23,17 @@ android {
         enable = true
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org\"")
+        }
+
         release {
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
