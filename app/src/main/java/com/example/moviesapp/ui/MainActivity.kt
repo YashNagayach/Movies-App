@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         movieViewModel.moviesLiveData.observe(this) {
             when (it) {
                 is NetworkResult.Success -> {
-                    movieAdapter.updateMovies(it.data)
+                    it.data?.let { it1 -> movieAdapter.updateMovies(it1) }
                     binding.progress.isVisible = false
                 }
 

@@ -1,8 +1,8 @@
 package com.example.moviesapp.utils
 
-sealed class NetworkResult<T> {
-    data class Loading<T>(val isLoading:Boolean): NetworkResult<T>()
-    data class Success<T>(val data: T): NetworkResult<T>()
-    data class Failure<T>(val message: String): NetworkResult<T>()
+sealed class NetworkResult<T>(val data: T?, val message: String? = null) {
+    class Loading<T>(val isLoading:Boolean): NetworkResult<T>(null)
+    class Success<T>(data: T): NetworkResult<T>(data)
+    class Failure<T>(message: String): NetworkResult<T>(null, message)
 
 }

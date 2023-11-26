@@ -9,9 +9,7 @@ import com.example.moviesapp.databinding.MovieItemBinding
 import com.example.moviesapp.model.Movie
 import javax.inject.Inject
 
-class MovieAdapter @Inject constructor(
-
-) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter @Inject constructor(): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     var onItemClick: ((Movie) -> Unit)? = null
     private var movies = mutableListOf<Movie>()
